@@ -4,13 +4,19 @@ module.exports = function(url) {
   return new Promise((resolve, reject) => {
     rp({ url: url, method: 'HEAD' })
       .then(result => {
-        resolve(/4\d\d/.test(result.statusCode) === false);
+        resolve({
+          exists: /4\d\d/.test(result.statusCode) === false,
+          headers: result
+        });
       })
       .catch(reason => {
-        if (reason.error.code === 'ENOTFOUND') {
-          resolve(false);
+        if (
+          reason.error.code === 'ENOTFOUND' ||
+          /4\d\d/.test(reason.statusCode)
+        ) {
+          resolve({ exists: false });
         } else {
-          reject(error);
+          reject(reason);
         }
       });
   });
