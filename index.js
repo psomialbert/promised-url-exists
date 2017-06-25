@@ -1,10 +1,13 @@
-var request = require('request');
+var request = require('request-promise-native');
 
-function urlExists(url, cb) {
-  request({ url: url, method: 'HEAD' }, function(err, res) {
-    if (err) return cb(null, false);
-    cb(null, /4\d\d/.test(res.statusCode) === false);
+module.exports = function(url) {
+  return new Promise(function(resolve, reject) {
+    request({ url: url, method: 'HEAD' })
+      .then(result => {
+        resolve(/4\d\d/.test(result.statusCode) === false);
+      })
+      .catch(error => {
+        reject(error);
+      });
   });
-}
-
-module.exports = urlExists;
+};
