@@ -1,6 +1,6 @@
 {
-  "name": "url-exists",
-  "version": "1.0.3",
+  "name": "promised-url-exists",
+  "version": "1.0.4",
   "description": "Check if a url exists",
   "main": "index.js",
   "scripts": {
@@ -8,18 +8,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/boblauer/url-exists.git"
+    "url": "git+https://github.com/psomialbert/promised-url-exists.git"
   },
   "keywords": [
     "url",
     "exists"
   ],
-  "author": "Bob Lauer <rlauer@gmail.com>",
+  "author": "Albert Schapiro <albert@schapiro.se>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/boblauer/url-exists/issues"
+    "url": "https://github.com/psomialbert/promised-url-/issues"
   },
-  "homepage": "https://github.com/boblauer/url-exists#readme",
+  "homepage": "https://github.com/psomialbert/promised-url-#readme",
   "dependencies": {
     "request": "^2.69.0",
     "request-promise-native": "^1.0.4"
