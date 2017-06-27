@@ -4,8 +4,7 @@ module.exports = function(url) {
   return new Promise((resolve, reject) => {
     rp({
       url: url,
-      method: 'HEAD',
-      mode: 'no-cors'
+      method: 'HEAD'
     })
       .then(result => {
         resolve({
