@@ -2,7 +2,11 @@ var rp = require('request-promise-native');
 
 module.exports = function(url) {
   return new Promise((resolve, reject) => {
-    rp({ url: url, method: 'HEAD' })
+    rp({
+      url: url,
+      method: 'HEAD',
+      mode: 'no-cors'
+    })
       .then(result => {
         resolve({
           exists: /4\d\d/.test(result.statusCode) === false,

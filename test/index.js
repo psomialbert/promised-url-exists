@@ -41,6 +41,8 @@ async.series([
       })
       .catch(reason => {
         assert(false);
+        assert(false);
+        assert(false);
         done();
       });
   },
@@ -54,6 +56,18 @@ async.series([
       .then(result => {
         assert(result.exists === true);
         assert(result.headers['content-type'] === 'image/png');
+        cleared(done);
+      })
+      .catch(reason => {
+        assert(false);
+        done();
+      });
+  },
+  done => {
+    console.log("urlExists('http://google.se')");
+    urlExists('http://google.se')
+      .then(result => {
+        assert(result.exists === true);
         cleared(done);
       })
       .catch(reason => {
