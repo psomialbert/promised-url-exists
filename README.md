@@ -7,7 +7,7 @@ A simple node library to determine if an url exists, now with native promises. [
 var urlExists = require('promised-url-exists');
 
 urlExists('https://www.google.com')
-  .then(exists => {
+  .then(({exists}) => {
     console.log(exists); // true
   })
   .catch(error => {
@@ -15,7 +15,7 @@ urlExists('https://www.google.com')
   });
 
 urlExists('https://www.fakeurl.notreal')
-  .then(exists => {
+  .then(({exists}) => {
     console.log(exists); // false
   })
   .catch(error => {
